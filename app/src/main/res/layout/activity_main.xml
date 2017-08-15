@@ -6,16 +6,34 @@
     android:orientation="vertical"
     tools:context="com.gz.hr.l.MainActivity">
 
-    <WebView
-        android:id="@+id/id_content_WebView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent">
+
+        <WebView
+            android:id="@+id/id_content_WebView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:scaleType="center"-->
+            <!--android:src="@drawable/ic_error_red_400_48dp"-->
+            <!--android:layout_height="match_parent" />-->
+
+    </RelativeLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#aaaaaa" />
 
     <LinearLayout
         android:id="@+id/id_bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="55dp"
         android:background="#ffffff"
         android:orientation="horizontal">
 
@@ -23,31 +41,73 @@
             android:id="@+id/id_main_souye_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/main_textColor" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="#aaaaaa" />
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/id_main_zhaopin_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/main_textColor" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="#aaaaaa" />
+
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/id_main_qiuzhi_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/main_textColor" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="#aaaaaa" />
+
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/id_main_zhaopinhui_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/main_textColor" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:background="#aaaaaa" />
+
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/id_main_user_tv"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:background="?android:attr/selectableItemBackground"
+            android:gravity="center"
+            android:textColor="@color/main_textColor" />
 
 
     </LinearLayout>
