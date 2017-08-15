@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 case 0:
                     quitCode.set(-1);
-                    Toast.makeText(this, "再轻按退出应用", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.app_main_back_tip, Toast.LENGTH_SHORT).show();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
