@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">广州人力资源市场</string>
+    <string name="app_main_shouye">首页</string>
+    <string name="app_main_zhaopin">招聘信息</string>
+    <string name="app_main_qiuzhi">求职信息</string>
+    <string name="app_main_zhaopinhui">招聘会</string>
+    <string name="app_main_user">我的资料</string>
+</resources>
