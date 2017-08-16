@@ -7,14 +7,22 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gz.hr.l.entity.ConnextEntity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -24,6 +32,7 @@ import butterknife.internal.ButterKnifeProcessor;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = "MainActivity";
     @Bind(R.id.id_content_WebView)
     WebView id_content_WebView;
     @Bind(R.id.id_bottom_layout)
@@ -51,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(this);
         initTextView();
         initWebView();
     }
@@ -93,8 +103,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 super.onPageStarted(view, url, favicon);
             }
         });
-        id_content_WebView.getSettings().setJavaScriptEnabled(true);
         id_content_WebView.loadUrl(UrlUtil.SOUYE_URL);
+        id_content_WebView.getSettings().setJavaScriptEnabled(true);
+        id_content_WebView.getSettings().setSupportZoom(true);
+        id_content_WebView.getSettings().setDisplayZoomControls(true);
+        id_content_WebView.getSettings().setUseWideViewPort(true);
+        id_content_WebView.getSettings().setLoadWithOverviewMode(true);
+
     }
 
     private void initTextView() {
@@ -176,9 +191,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         id_content_WebView.clearHistory();
         id_content_WebView.destroy();
         ButterKnife.unbind(this);
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessage(ConnextEntity connextEntity){
+
+        if(!ConnectReceiver.isConnect()){
+            Log.i(TAG, "onMessage: connext change error");
+//            Toast.makeText(this,R.string.connext_error,Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     @Override

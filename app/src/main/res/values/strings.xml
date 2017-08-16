@@ -6,4 +6,5 @@
     <string name="app_main_zhaopinhui">招聘会</string>
     <string name="app_main_user">我的资料</string>
     <string name="app_main_back_tip">再轻按退出应用</string>
+    <string name="connext_error">网络异常</string>
 </resources>
