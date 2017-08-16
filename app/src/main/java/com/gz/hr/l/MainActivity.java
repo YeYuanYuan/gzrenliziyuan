@@ -112,15 +112,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && id_content_WebView.canGoBack()) {
-            id_content_WebView.goBack(); //goBack()表示返回WebView的上一页面
-            return true;
-        } else {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+//            id_content_WebView.goBack(); //goBack()表示返回WebView的上一页面
+//            return true;
+//        } else {
 
             switch (quitCode.get()) {
                 case -1:
                     handler.removeCallbacksAndMessages(null);
-                    finish();
+                    moveTaskToBack(false);
                     break;
                 case 0:
                     quitCode.set(-1);
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
         }
-        return false;
+        return true;
     }
 
     public void initTextColor() {
