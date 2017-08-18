@@ -3,6 +3,7 @@ package com.gz.hr.l;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.http.SslError;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.gz.hr.l.entity.ConnextEntity;
 
 import org.greenrobot.eventbus.EventBus;
@@ -59,6 +61,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if(Build.VERSION.SDK_INT > 21) {
+            try {
+                StatusBarCompat.setStatusBarColor(this, Color.parseColor("#ffffff"), false);
+            }catch (Exception ex){
+                ex.printStackTrace();
+            }
+        }
         ButterKnife.bind(this);
         EventBus.getDefault().register(this);
         initTextView();
